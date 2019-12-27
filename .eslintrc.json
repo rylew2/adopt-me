@@ -1,0 +1,16 @@
+{
+  "extends": ["eslint:recommended", "prettier", "prettier/react"],
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 2018, //can use latest things like async/await, es6 constructs
+    "sourceType": "module", //use import/export
+    "ecmaFeatures": {
+      "jsx": true //allows to understand jsx
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true, //allows us to use setTimeout, document, window w/o it being flagged
+    "node": true //allows us to use http or require w/o it being flagged
+  }
+}
