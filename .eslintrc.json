@@ -1,6 +1,22 @@
 {
-  "extends": ["eslint:recommended", "prettier", "prettier/react"],
-  "plugins": [],
+  "extends": [
+    "eslint:recommended", //all eslint rules should be perfect
+    "plugin:import/errors",
+    "plugin:react/recommended", // has some controversial rules
+    "plugin:jsx-a11y/recommended",
+
+    "prettier", // these two prettier statements need to be last since they turn things off
+    "prettier/react" // (if prettier was first, eslint:recommended would turn on additional settings)
+  ],
+  "rules": {
+    // 0 is turn off, 1 is warn, 2 is error
+    //turn on and off specific rules
+    "react/prop-types": 0, //no need for prop-types (prop-types are a weak form of type checking)
+    "no-console": 1, // If this is 0, error (red underline) out on console.log. If 1, it will give a warning on console.log (green underline)
+    "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 1 //has to do with effects
+  },
+  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
   "parserOptions": {
     "ecmaVersion": 2018, //can use latest things like async/await, es6 constructs
     "sourceType": "module", //use import/export
@@ -12,5 +28,10 @@
     "es6": true,
     "browser": true, //allows us to use setTimeout, document, window w/o it being flagged
     "node": true //allows us to use http or require w/o it being flagged
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
